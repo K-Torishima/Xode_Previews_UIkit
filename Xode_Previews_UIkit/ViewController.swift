@@ -12,24 +12,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
     }
 }
 
 #if DEBUG
 import SwiftUI
 
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-    func makeUIViewController(context: Context) -> some UIViewController {
+struct VCPreview: PreviewProvider {
+    static var previews: some View {
         ViewController()
+            .toPreview()
+            .previewDevice("iPhone 11 Pro Max")
     }
 }
 
-struct ViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        ViewControllerRepresentable()
-            .previewDevice("iPhone 11 Pro Max")
-        
-    }
-}
 #endif
