@@ -9,17 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("ボタンのテキスト", for: UIControl.State.normal)
+        button.tintColor = .black
+        button.sizeToFit()
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
-        
-        let button = UIButton(type: UIButton.ButtonType.system)
-        button.addTarget(self, action: #selector(buttonEvent(_:)), for: UIControl.Event.touchUpInside)
-        button.setTitle("ボタンのテキスト", for: UIControl.State.normal)
-        button.sizeToFit()
+        view.backgroundColor = .cyan
         button.center = self.view.center
+        button.addTarget(self, action: #selector(buttonEvent(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button)
-
     }
     
     @objc func buttonEvent(_ sender: UIButton) {
