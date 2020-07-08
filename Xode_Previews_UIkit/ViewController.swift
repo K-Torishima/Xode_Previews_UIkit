@@ -8,11 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .brown
+        
+        let button = UIButton(type: UIButton.ButtonType.system)
+        button.addTarget(self, action: #selector(buttonEvent(_:)), for: UIControl.Event.touchUpInside)
+        button.setTitle("ボタンのテキスト", for: UIControl.State.normal)
+        button.sizeToFit()
+        button.center = self.view.center
+        self.view.addSubview(button)
+
+    }
+    
+    @objc func buttonEvent(_ sender: UIButton) {
+        print("ボタンの情報: \(sender)")
     }
 }
 
